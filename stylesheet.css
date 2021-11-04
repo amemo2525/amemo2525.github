@@ -1,0 +1,217 @@
+/* common */
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* m0 でmargin: 0;になる pで％ */
+h1,
+h2 {
+  margin: 0;
+  font-weight: normal;
+}
+
+p{
+  margin: 0;
+}
+
+/* vab で入力しても良い */
+img {
+  vertical-align: bottom;
+}
+
+.container {
+  margin: 0 16px;
+  /* outline: 2px solid red; */
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity .3s;
+}
+
+a:hover {
+  opacity: .5;
+}
+
+
+
+/* header */
+
+header {
+  /* background: #eee; */
+  /* 上下に余白 */
+  padding: 8px 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header ul {
+  display: flex;
+}
+
+header li a {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  text-align: center;
+}
+
+header li a i {
+  font-size: 18px;
+}
+
+header li + li {
+  margin-left: 8px;
+}
+
+header form {
+  display: none;
+}
+
+header input,
+header button {
+  all: unset;
+}
+
+header input {
+  border-bottom: 1px solid #aaa;
+  padding: 4px;
+  width: 300px;
+}
+
+header button {
+  cursor: pointer;
+}
+
+/* hero */
+
+/* 絶対配置をすると通常の配置フローから外れるため次に来る要素が下にもぐりこんでしまう */
+
+.hero {
+  height: 400px;
+}
+
+.hero img {
+  width: 100%;
+  height: 400px;
+  /* 縦横比を保ちつつ大きくしてくれる */
+  object-fit: cover;
+  /* 画像を同じ位置にしたいので絶対配置にする */
+  position: absolute;
+  /* opacity: 0;として表現させたいもので１とするあとはjavascripttで表示できるようにする */
+  opacity: 0;
+  /* ふわっと表示させたい */
+  transition: opacity 1ds;
+}
+
+.hero img.current {
+  opacity: 1;
+}
+
+/* products */
+
+/* 余白をつける */
+.products {
+  padding: 80px 0;
+}
+
+.products ul {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.products li {
+  width: calc((100% - 16px) / 2);
+  /* outline: 2px solid blue; */
+}
+
+.products li img {
+  width: 100%;
+}
+
+.products li h2 {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.products li a {
+  display: block;
+}
+
+.products .more {
+  display: block;
+  width: 70%;
+  line-height: 48px;
+  border: 2px solid #333;
+  text-align: center;
+  margin: 32px auto 0;
+}
+
+/* footer */
+
+footer {
+  background: #4c4948;
+  padding: 16px 0;
+  color: #eee;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer small {
+  font-style: 16px;
+}
+
+footer li i {
+  font-style: 24px;
+}
+
+footer ul {
+  display: flex;
+}
+
+footer li + li {
+  margin-left: 8px;
+}
+
+/* medium screen pcの二段階画面変動 */
+
+@media (min-width: 600px) {
+  .products li {
+    width: calc((100% - 32px) / 3);
+  }
+}
+
+/* large screen pcの二段階画面変動 */
+/* 分かりやすいように背景に色をそれぞれbodyに追加 */
+
+@media (min-width: 800px) {
+
+  .container {
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    min-width: 800px;
+  }
+
+  header form {
+    display: block;
+  }
+}
